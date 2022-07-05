@@ -3,11 +3,12 @@ import "./App.css";
 
 function App() {
   const [randomNumber, setRandomNumber] = useState(null);
+  const [playersNumber, setPlayersNumber] = useState(null);
 
   const drawNumber = () => {
     setRandomNumber(Math.trunc(Math.random() * 10) + 1);
   };
-  console.log(randomNumber);
+  console.log(randomNumber, playersNumber);
 
   return (
     <div className="App">
@@ -18,7 +19,10 @@ function App() {
           <form>
             <label>
               <span>Type a number (1 to 10)</span>
-              <input type="text" />
+              <input
+                type="text"
+                onChange={(event) => setPlayersNumber(event.target.value)}
+              />
             </label>
           </form>
         </div>
