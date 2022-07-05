@@ -14,7 +14,9 @@ function App() {
             </label>
           </form>
         </div>
-        <div className="random-number">?</div>
+        <div className="random-number">
+          <span>?</span>
+        </div>
       </div>
     </div>
   );
