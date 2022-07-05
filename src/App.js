@@ -9,7 +9,7 @@ function App() {
   //drawing a random number
   const min = 1;
   const max = 20;
-  const drawNumber = (min, max) => {
+  const drawNumber = () => {
     if (!gameWon) {
       setRandomNumber(Math.trunc(Math.random() * (max - min + 1)) + min);
     }
