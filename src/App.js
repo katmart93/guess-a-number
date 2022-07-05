@@ -7,16 +7,13 @@ function App() {
   const [gameWon, setGameWon] = useState(false);
 
   //drawing a random number
-  const drawNumber = () => {
+  const min = 1;
+  const max = 20;
+  const drawNumber = (min, max) => {
     if (!gameWon) {
-      setRandomNumber(Math.trunc(Math.random() * 10) + 1);
+      setRandomNumber(Math.trunc(Math.random() * (max - min + 1)) + min);
     }
   };
-
-  // const resetTurn = () => {
-  //   setRandomNumber(null);
-  //   setPlayersNumber(null);
-  // };
 
   console.log(randomNumber, playersNumber);
   // comparing numbers
@@ -36,7 +33,7 @@ function App() {
         <div className="players-number">
           <form>
             <label>
-              <span>Type a number (1 to 10)</span>
+              <span>Type a number {`${min} to ${max}`}</span>
               <input
                 type="text"
                 onChange={(event) =>
