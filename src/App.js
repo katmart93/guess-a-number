@@ -10,7 +10,7 @@ function App() {
           <form>
             <label>
               <span>Type your number</span>
-              <input type="number" />
+              <input type="text" />
             </label>
           </form>
         </div>

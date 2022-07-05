@@ -18,3 +18,23 @@ button:hover {
   cursor: pointer;
   background-color: #1b242e83;
 }
+
+.game {
+  display: flex;
+  justify-content: space-around;
+  padding: 100px 0;
+}
+
+.users-number span {
+  font-size: 1.5em;
+}
+
+.users-number input {
+  display: block;
+  padding: 10px;
+  background: none;
+  border: 3px solid #fff;
+  margin-top: 20px;
+  font-size: 1em;
+  color: #fff;
+}
