@@ -6,11 +6,20 @@ function App() {
   const [playersNumber, setPlayersNumber] = useState(null);
   const [gameWon, setGameWon] = useState(false);
 
+  //drawing a random number
   const drawNumber = () => {
-    setRandomNumber(Math.trunc(Math.random() * 10) + 1);
+    if (!gameWon) {
+      setRandomNumber(Math.trunc(Math.random() * 10) + 1);
+    }
   };
-  console.log(randomNumber, playersNumber);
 
+  // const resetTurn = () => {
+  //   setRandomNumber(null);
+  //   setPlayersNumber(null);
+  // };
+
+  console.log(randomNumber, playersNumber);
+  // comparing numbers
   useEffect(() => {
     if (randomNumber && playersNumber) {
       if (randomNumber === playersNumber) {
