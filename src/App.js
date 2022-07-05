@@ -1,15 +1,23 @@
+import { useState } from "react";
 import "./App.css";
 
 function App() {
+  const [randomNumber, setRandomNumber] = useState(null);
+
+  const drawNumber = () => {
+    setRandomNumber(Math.trunc(Math.random() * 10) + 1);
+  };
+  console.log(randomNumber);
+
   return (
     <div className="App">
       <h1>Guess a Number</h1>
-      <button>Draw a number</button>
+      <button onClick={drawNumber}>Draw a number</button>
       <div className="game">
-        <div className="users-number">
+        <div className="players-number">
           <form>
             <label>
-              <span>Type your number</span>
+              <span>Type a number (1 to 10)</span>
               <input type="text" />
             </label>
           </form>

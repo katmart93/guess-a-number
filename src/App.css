@@ -25,11 +25,11 @@ button:hover {
   padding: 100px 0;
 }
 
-.users-number span {
+.players-number span {
   font-size: 1.5em;
 }
 
-.users-number input {
+.players-number input {
   display: block;
   background: none;
   border: 3px solid #fff;
@@ -43,7 +43,7 @@ button:hover {
 
 .random-number {
   font-size: 2em;
-  border: 2px solid #fff;
+  border: 3px solid #fff;
   width: 200px;
   height: 200px;
   /* display: flex;
