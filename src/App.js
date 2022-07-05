@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
+/* validate input, onChange -> onEnter?? */
+
 function App() {
   const [randomNumber, setRandomNumber] = useState(null);
   const [playersNumber, setPlayersNumber] = useState(null);
   const [gameWon, setGameWon] = useState(false);
 
   //drawing a random number
-  const min = 1;
-  const max = 20;
+  const min = 5;
+  const max = 30;
   const drawNumber = () => {
     if (!gameWon) {
       setRandomNumber(Math.trunc(Math.random() * (max - min + 1)) + min);
