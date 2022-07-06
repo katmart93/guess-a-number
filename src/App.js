@@ -9,7 +9,7 @@ function App() {
   const [gameWon, setGameWon] = useState(false);
   const [numTooLow, setNumTooLow] = useState(false);
   const [numTooHigh, setNumTooHigh] = useState(false);
-  const [score, setScore] = useState(5);
+  const [score, setScore] = useState(3);
   const [gameOver, setGameOver] = useState(false);
 
   //drawing a random number
