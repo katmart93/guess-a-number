@@ -10,6 +10,7 @@ function App() {
   const [numTooLow, setNumTooLow] = useState(false);
   const [numTooHigh, setNumTooHigh] = useState(false);
   const [score, setScore] = useState(5);
+  const [gameOver, setGameOver] = useState(false);
 
   //drawing a random number
   const min = 1;
@@ -40,11 +41,22 @@ function App() {
     }
   }, [randomNumber, playersNumber]);
 
+  // handling game over
+  useEffect(() => {
+    if (score <= 0) {
+      setGameOver(true);
+      setNumTooLow(false);
+      setNumTooHigh(false);
+    }
+  }, [score]);
+
   // resetting game
   const resetGame = () => {
     setRandomNumber(null);
     setPlayersNumber(null);
     setGameWon(false);
+    setGameOver(false);
+    setScore(5);
   };
 
   // handle score
@@ -83,6 +95,12 @@ function App() {
       {gameWon && (
         <div className="game-won-message">
           <h1>You win!</h1>
+          <button onClick={resetGame}>Play again</button>
+        </div>
+      )}
+      {gameOver && (
+        <div className="game-over-message">
+          <h1>You lost! 😖</h1>
           <button onClick={resetGame}>Play again</button>
         </div>
       )}
