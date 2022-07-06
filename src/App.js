@@ -27,6 +27,13 @@ function App() {
     }
   }, [randomNumber, playersNumber]);
 
+  // resetting turn
+  const resetTurn = () => {
+    setRandomNumber(null);
+    setPlayersNumber(null);
+    setGameWon(false);
+  };
+
   return (
     <div className="App">
       <h1>Guess a Number</h1>
@@ -58,7 +65,7 @@ function App() {
         {gameWon && (
           <div>
             <h1>You win!</h1>
-            <button>Play again</button>
+            <button onClick={resetTurn}>Play again</button>
           </div>
         )}
       </div>
