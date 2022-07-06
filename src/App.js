@@ -9,10 +9,10 @@ function App() {
   const [gameWon, setGameWon] = useState(false);
 
   //drawing a random number
-  const min = 5;
-  const max = 30;
+  const min = 1;
+  const max = 20;
   const drawNumber = () => {
-    if (!gameWon) {
+    if (!gameWon && !randomNumber) {
       setRandomNumber(Math.trunc(Math.random() * (max - min + 1)) + min);
     }
   };
@@ -32,21 +32,23 @@ function App() {
       <h1>Guess a Number</h1>
       <button onClick={drawNumber}>Draw a number</button>
       <div className="game">
-        <div className="players-number">
-          <form>
-            <label>
-              <span>Type a number {`${min} to ${max}`}</span>
-              <input
-                type="text"
-                onChange={(event) =>
-                  setPlayersNumber(parseInt(event.target.value))
-                }
-              />
-            </label>
-          </form>
-        </div>
+        {randomNumber && (
+          <div className="players-number">
+            <form>
+              <label>
+                <span>Type a number: {`${min} to ${max}`}</span>
+                <input
+                  type="text"
+                  onChange={(event) =>
+                    setPlayersNumber(parseInt(event.target.value))
+                  }
+                />
+              </label>
+            </form>
+          </div>
+        )}
         <div className="random-number">
-          {gameWon ? <span>{randomNumber}</span> : <div>?</div>}
+          {gameWon ? <span>{randomNumber}</span> : <span>?</span>}
         </div>
       </div>
     </div>
