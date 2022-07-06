@@ -39,8 +39,9 @@ function App() {
                 <span>Type a number: {`${min} to ${max}`}</span>
                 <input
                   type="text"
-                  onChange={(event) =>
-                    setPlayersNumber(parseInt(event.target.value))
+                  onKeyUp={(e) =>
+                    e.key === "Enter" &&
+                    setPlayersNumber(parseInt(e.target.value))
                   }
                 />
               </label>
