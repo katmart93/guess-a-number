@@ -21,7 +21,7 @@ function App() {
     }
   };
 
-  console.log(randomNumber, playersNumber);
+  // console.log(randomNumber, playersNumber);
   // comparing numbers
   useEffect(() => {
     if (randomNumber && playersNumber) {
@@ -94,13 +94,13 @@ function App() {
       </div>
       {gameWon && (
         <div className="game-won-message">
-          <h1>You win!</h1>
+          <h1>You win! 🎊</h1>
           <button onClick={resetGame}>Play again</button>
         </div>
       )}
       {gameOver && (
         <div className="game-over-message">
-          <h1>You lost! 😖</h1>
+          <h1>You lose! 😖</h1>
           <button onClick={resetGame}>Play again</button>
         </div>
       )}
