@@ -9,6 +9,7 @@ function App() {
   const [gameWon, setGameWon] = useState(false);
   const [numTooLow, setNumTooLow] = useState(false);
   const [numTooHigh, setNumTooHigh] = useState(false);
+  const [score, setScore] = useState(5);
 
   //drawing a random number
   const min = 1;
@@ -30,18 +31,25 @@ function App() {
       } else if (playersNumber < randomNumber) {
         setNumTooLow(true);
         setNumTooHigh(false);
+        handleScore();
       } else if (playersNumber > randomNumber) {
         setNumTooHigh(true);
         setNumTooLow(false);
+        handleScore();
       }
     }
   }, [randomNumber, playersNumber]);
 
-  // resetting turn
-  const resetTurn = () => {
+  // resetting game
+  const resetGame = () => {
     setRandomNumber(null);
     setPlayersNumber(null);
     setGameWon(false);
+  };
+
+  // handle score
+  const handleScore = () => {
+    setScore((prevScore) => prevScore - 1);
   };
 
   return (
@@ -51,7 +59,7 @@ function App() {
       <div className="game">
         {randomNumber && (
           <div className="players-number">
-            <form onSubmit={(event) => event.preventDefault()}>
+            <form onSubmit={(e) => e.preventDefault()}>
               <label>
                 <span>
                   Type a number from {`${min} to ${max}`} <br /> and hit Enter
@@ -65,6 +73,7 @@ function App() {
                 />
               </label>
             </form>
+            <div className="score">Number of guesses left: {score}</div>
           </div>
         )}
         <div className="random-number">
@@ -74,12 +83,18 @@ function App() {
       {gameWon && (
         <div className="game-won-message">
           <h1>You win!</h1>
-          <button onClick={resetTurn}>Play again</button>
+          <button onClick={resetGame}>Play again</button>
         </div>
       )}
-      {numTooLow && <div className="num-too-low">Your number is too low</div>}
+      {numTooLow && (
+        <div className="num-too-low">
+          Your number -- {playersNumber} -- is too low!
+        </div>
+      )}
       {numTooHigh && (
-        <div className="num-too-high">Your number is too high</div>
+        <div className="num-too-high">
+          Your number -- {playersNumber} -- is too high!
+        </div>
       )}
     </div>
   );
