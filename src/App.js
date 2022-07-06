@@ -12,7 +12,7 @@ function App() {
   const min = 1;
   const max = 20;
   const drawNumber = () => {
-    if (!gameWon && !randomNumber) {
+    if (!randomNumber) {
       setRandomNumber(Math.trunc(Math.random() * (max - min + 1)) + min);
     }
   };
@@ -34,7 +34,7 @@ function App() {
       <div className="game">
         {randomNumber && (
           <div className="players-number">
-            <form>
+            <form onSubmit={(event) => event.preventDefault()}>
               <label>
                 <span>Type a number: {`${min} to ${max}`}</span>
                 <input
