@@ -56,7 +56,7 @@ function App() {
     setPlayersNumber(null);
     setGameWon(false);
     setGameOver(false);
-    setScore(5);
+    setScore(3);
   };
 
   // handle score
