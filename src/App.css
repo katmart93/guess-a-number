@@ -52,3 +52,7 @@ button:hover {
   align-items: center; */
   line-height: 200px;
 }
+
+.random-number:hover {
+  cursor: pointer;
+}

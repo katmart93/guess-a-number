@@ -21,7 +21,7 @@ function App() {
     }
   };
 
-  // console.log(randomNumber, playersNumber);
+  console.log(randomNumber, playersNumber);
   // comparing numbers
   useEffect(() => {
     if (randomNumber && playersNumber) {
@@ -67,7 +67,7 @@ function App() {
   return (
     <div className="App">
       <h1>Guess a Number</h1>
-      <button onClick={drawNumber}>Draw a number</button>
+      {!randomNumber && <div>Draw a number by clicking on the box below</div>}
       <div className="game">
         {randomNumber && (
           <div className="players-number">
@@ -88,7 +88,7 @@ function App() {
             <div className="score">Number of guesses left: {score}</div>
           </div>
         )}
-        <div className="random-number">
+        <div className="random-number" onClick={drawNumber}>
           {gameWon ? <span>{randomNumber}</span> : <span>?</span>}
         </div>
       </div>
