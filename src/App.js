@@ -36,7 +36,9 @@ function App() {
           <div className="players-number">
             <form onSubmit={(event) => event.preventDefault()}>
               <label>
-                <span>Type a number: {`${min} to ${max}`}</span>
+                <span>
+                  Type a number from {`${min} to ${max}`} <br /> and hit Enter
+                </span>
                 <input
                   type="text"
                   onKeyUp={(e) =>
@@ -51,6 +53,14 @@ function App() {
         <div className="random-number">
           {gameWon ? <span>{randomNumber}</span> : <span>?</span>}
         </div>
+      </div>
+      <div className="game-won-message">
+        {gameWon && (
+          <div>
+            <h1>You win!</h1>
+            <button>Play again</button>
+          </div>
+        )}
       </div>
     </div>
   );
