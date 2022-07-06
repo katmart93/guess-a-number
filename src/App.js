@@ -7,6 +7,8 @@ function App() {
   const [randomNumber, setRandomNumber] = useState(null);
   const [playersNumber, setPlayersNumber] = useState(null);
   const [gameWon, setGameWon] = useState(false);
+  const [numTooLow, setNumTooLow] = useState(false);
+  const [numTooHigh, setNumTooHigh] = useState(false);
 
   //drawing a random number
   const min = 1;
@@ -23,6 +25,14 @@ function App() {
     if (randomNumber && playersNumber) {
       if (randomNumber === playersNumber) {
         setGameWon(true);
+        setNumTooLow(false);
+        setNumTooHigh(false);
+      } else if (playersNumber < randomNumber) {
+        setNumTooLow(true);
+        setNumTooHigh(false);
+      } else if (playersNumber > randomNumber) {
+        setNumTooHigh(true);
+        setNumTooLow(false);
       }
     }
   }, [randomNumber, playersNumber]);
@@ -61,14 +71,16 @@ function App() {
           {gameWon ? <span>{randomNumber}</span> : <span>?</span>}
         </div>
       </div>
-      <div className="game-won-message">
-        {gameWon && (
-          <div>
-            <h1>You win!</h1>
-            <button onClick={resetTurn}>Play again</button>
-          </div>
-        )}
-      </div>
+      {gameWon && (
+        <div className="game-won-message">
+          <h1>You win!</h1>
+          <button onClick={resetTurn}>Play again</button>
+        </div>
+      )}
+      {numTooLow && <div className="num-too-low">Your number is too low</div>}
+      {numTooHigh && (
+        <div className="num-too-high">Your number is too high</div>
+      )}
     </div>
   );
 }
