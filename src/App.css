@@ -20,9 +20,7 @@ button:hover {
 }
 
 .game {
-  display: flex;
-  justify-content: space-around;
-  padding: 80px 0;
+  padding: 20px 0;
 }
 
 .players-number span {
@@ -42,15 +40,13 @@ button:hover {
   height: 50px;
 }
 
-.random-number {
+.random-number-box {
   font-size: 2em;
   border: 3px solid #fff;
   width: 200px;
   height: 200px;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   line-height: 200px;
+  margin: 40px auto;
 }
 
 .random-number:hover {
@@ -72,4 +68,36 @@ input[type="number"] {
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   opacity: 0;
+}
+
+/* tablet styles */
+@media screen and (min-width: 620px) {
+  body {
+    font-size: 1.5rem;
+  }
+}
+
+/* laptop and desktop styles */
+@media screen and (min-width: 1023px) {
+  body {
+    font-size: 2rem;
+  }
+
+  .game {
+    display: flex;
+    justify-content: space-around;
+    padding: 80px 0;
+  }
+}
+
+/* 4k styles */
+
+@media screen and (min-width: 2500px) {
+  body {
+    font-size: 4rem;
+  }
+
+  .App {
+    max-width: 1440px;
+  }
 }

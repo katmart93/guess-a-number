@@ -95,11 +95,13 @@ function App() {
             </form>
             <div className="score">Number of guesses left: {score}</div>
             {isNaN(playersNumber) && (
-              <div style={{ color: "#F70006" }}>You must enter a number!</div>
+              <div className="error-message" style={{ color: "#F70006" }}>
+                You must enter a number!
+              </div>
             )}
           </div>
         )}
-        <div className="random-number" onClick={drawNumber}>
+        <div className="random-number-box" onClick={drawNumber}>
           {gameWon ? <span>{randomNumber}</span> : <span>?</span>}
         </div>
       </div>
