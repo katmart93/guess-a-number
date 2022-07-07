@@ -56,3 +56,20 @@ button:hover {
 .random-number:hover {
   cursor: pointer;
 }
+
+/* Chrome, Safari, Edge, Opera */
+/* input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+} */
+
+/* Firefox */
+/* input[type="number"] {
+  -moz-appearance: textfield;
+} */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 0;
+}

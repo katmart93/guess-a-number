@@ -50,6 +50,15 @@ function App() {
     }
   }, [score]);
 
+  // handling NaN
+  useEffect(() => {
+    if (isNaN(playersNumber)) {
+      setNumTooLow(false);
+      setNumTooHigh(false);
+    }
+  }, [playersNumber]);
+  console.log(numTooLow, numTooHigh);
+
   // resetting game
   const resetGame = () => {
     setRandomNumber(null);
@@ -77,7 +86,7 @@ function App() {
                   Type a number from {`${min} to ${max}`} <br /> and hit Enter
                 </span>
                 <input
-                  type="text"
+                  type="number"
                   onKeyUp={(e) =>
                     e.key === "Enter" &&
                     setPlayersNumber(parseInt(e.target.value))
