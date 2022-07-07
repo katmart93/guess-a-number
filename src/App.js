@@ -19,7 +19,7 @@ function App() {
     }
   };
 
-  console.log(randomNumber, playersNumber);
+  // console.log(randomNumber, playersNumber);
   // comparing numbers
   useEffect(() => {
     if (randomNumber && playersNumber) {
