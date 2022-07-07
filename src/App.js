@@ -86,6 +86,9 @@ function App() {
               </label>
             </form>
             <div className="score">Number of guesses left: {score}</div>
+            {isNaN(playersNumber) && (
+              <div style={{ color: "red" }}>You must enter a number!</div>
+            )}
           </div>
         )}
         <div className="random-number" onClick={drawNumber}>
