@@ -72,59 +72,61 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Guess a Number</h1>
-      {!randomNumber && <div>Draw a number by clicking on the box below</div>}
-      <div className="game">
-        {randomNumber && (
-          <div className="players-number">
-            <form onSubmit={(e) => e.preventDefault()}>
-              <label>
-                <span>
-                  Type a number from {`${min} to ${max}`} <br /> and hit Enter
-                </span>
-                <input
-                  type="number"
-                  onKeyUp={(e) =>
-                    e.key === "Enter" &&
-                    setPlayersNumber(parseInt(e.target.value))
-                  }
-                />
-              </label>
-            </form>
-            <div className="score">Number of guesses left: {score}</div>
-            {isNaN(playersNumber) && (
-              <div className="error-message" style={{ color: "#F70006" }}>
-                You must enter a number!
-              </div>
-            )}
+      <div className="app-container">
+        <h1>Guess a Number</h1>
+        {!randomNumber && <div>Draw a number by clicking on the box below</div>}
+        <div className="game">
+          {randomNumber && (
+            <div className="players-number">
+              <form onSubmit={(e) => e.preventDefault()}>
+                <label>
+                  <span>
+                    Type a number from {`${min} to ${max}`} <br /> and hit Enter
+                  </span>
+                  <input
+                    type="number"
+                    onKeyUp={(e) =>
+                      e.key === "Enter" &&
+                      setPlayersNumber(parseInt(e.target.value))
+                    }
+                  />
+                </label>
+              </form>
+              <div className="score">Number of guesses left: {score}</div>
+              {isNaN(playersNumber) && (
+                <div className="error-message" style={{ color: "#F70006" }}>
+                  You must enter a number!
+                </div>
+              )}
+            </div>
+          )}
+          <div className="random-number-box" onClick={drawNumber}>
+            {gameWon ? <span>{randomNumber}</span> : <span>?</span>}
+          </div>
+        </div>
+        {gameWon && (
+          <div className="game-won-message">
+            <h1>You win! 🎊</h1>
+            <button onClick={resetGame}>Play again</button>
           </div>
         )}
-        <div className="random-number-box" onClick={drawNumber}>
-          {gameWon ? <span>{randomNumber}</span> : <span>?</span>}
-        </div>
+        {gameOver && (
+          <div className="game-over-message">
+            <h1>You lose! 😖</h1>
+            <button onClick={resetGame}>Play again</button>
+          </div>
+        )}
+        {numTooLow && (
+          <div className="num-too-low">
+            Your number -- {playersNumber} -- is too low!
+          </div>
+        )}
+        {numTooHigh && (
+          <div className="num-too-high">
+            Your number -- {playersNumber} -- is too high!
+          </div>
+        )}
       </div>
-      {gameWon && (
-        <div className="game-won-message">
-          <h1>You win! 🎊</h1>
-          <button onClick={resetGame}>Play again</button>
-        </div>
-      )}
-      {gameOver && (
-        <div className="game-over-message">
-          <h1>You lose! 😖</h1>
-          <button onClick={resetGame}>Play again</button>
-        </div>
-      )}
-      {numTooLow && (
-        <div className="num-too-low">
-          Your number -- {playersNumber} -- is too low!
-        </div>
-      )}
-      {numTooHigh && (
-        <div className="num-too-high">
-          Your number -- {playersNumber} -- is too high!
-        </div>
-      )}
     </div>
   );
 }
