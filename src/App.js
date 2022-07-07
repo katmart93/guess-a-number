@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-/* validate input, onChange -> onEnter?? */
-
 function App() {
   const [randomNumber, setRandomNumber] = useState(null);
   const [playersNumber, setPlayersNumber] = useState(null);
