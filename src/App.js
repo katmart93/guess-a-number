@@ -57,7 +57,6 @@ function App() {
       setNumTooHigh(false);
     }
   }, [playersNumber]);
-  console.log(numTooLow, numTooHigh);
 
   // resetting game
   const resetGame = () => {
@@ -96,7 +95,7 @@ function App() {
             </form>
             <div className="score">Number of guesses left: {score}</div>
             {isNaN(playersNumber) && (
-              <div style={{ color: "red" }}>You must enter a number!</div>
+              <div style={{ color: "#F70006" }}>You must enter a number!</div>
             )}
           </div>
         )}
