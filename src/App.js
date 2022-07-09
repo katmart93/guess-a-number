@@ -70,8 +70,21 @@ function App() {
     setScore((prevScore) => prevScore - 1);
   };
 
+  // handle background color
+  const handleBGColor = () => {
+    if (gameWon) {
+      return {
+        backgroundColor: "green",
+      };
+    } else if (gameOver) {
+      return {
+        backgroundColor: "red",
+      };
+    }
+  };
+
   return (
-    <div className="App">
+    <div className="App" style={handleBGColor()}>
       <div className="app-container">
         <h1>Guess a Number</h1>
         {!randomNumber && <div>Draw a number by clicking on the box below</div>}
