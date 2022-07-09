@@ -74,11 +74,11 @@ function App() {
   const handleBGColor = () => {
     if (gameWon) {
       return {
-        backgroundColor: "green",
+        backgroundColor: "#0a4b4d",
       };
     } else if (gameOver) {
       return {
-        backgroundColor: "red",
+        backgroundColor: "#9f1e31",
       };
     }
   };
