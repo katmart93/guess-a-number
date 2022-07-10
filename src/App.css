@@ -23,12 +23,6 @@ button {
   font-size: 1em;
 }
 
-button:hover,
-.random-number-box:hover {
-  cursor: pointer;
-  background-color: #1b242e83;
-}
-
 .game {
   padding: 20px 0;
 }
@@ -57,6 +51,12 @@ button:hover,
   height: 200px;
   line-height: 200px;
   margin: 30px auto;
+}
+
+button:hover,
+.random-number-box:hover {
+  cursor: pointer;
+  background-color: #1b242e83;
 }
 
 /* Chrome, Safari, Edge, Opera */
