@@ -88,6 +88,16 @@ function App() {
       <div className="app-container">
         <h1>Guess a Number</h1>
         {!randomNumber && <div>Draw a number by clicking on the box below</div>}
+        {numTooLow && (
+          <div className="num-too-low">
+            Your number -- {playersNumber} -- is too low!
+          </div>
+        )}
+        {numTooHigh && (
+          <div className="num-too-high">
+            Your number -- {playersNumber} -- is too high!
+          </div>
+        )}
         <div className="game">
           {randomNumber && (
             <div className="players-number">
@@ -127,16 +137,6 @@ function App() {
           <div className="game-over-message">
             <h1>You lose! 😖</h1>
             <button onClick={resetGame}>Play again</button>
-          </div>
-        )}
-        {numTooLow && (
-          <div className="num-too-low">
-            Your number -- {playersNumber} -- is too low!
-          </div>
-        )}
-        {numTooHigh && (
-          <div className="num-too-high">
-            Your number -- {playersNumber} -- is too high!
           </div>
         )}
       </div>
