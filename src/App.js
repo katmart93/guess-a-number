@@ -87,15 +87,31 @@ function App() {
     <div className="App" style={handleBGColor()}>
       <div className="app-container">
         <h1>Guess a Number</h1>
-        {!randomNumber && <div>Draw a number by clicking on the box below</div>}
+        {!randomNumber && (
+          <div className="draw-a-number msg">
+            <div>Draw a number by clicking on the box below</div>
+          </div>
+        )}
         {numTooLow && (
-          <div className="num-too-low">
-            Your number -- {playersNumber} -- is too low!
+          <div className="num-too-low msg">
+            <div>Your number -- {playersNumber} -- is too low!</div>
           </div>
         )}
         {numTooHigh && (
-          <div className="num-too-high">
-            Your number -- {playersNumber} -- is too high!
+          <div className="num-too-high msg">
+            <div>Your number -- {playersNumber} -- is too high!</div>
+          </div>
+        )}
+        {gameWon && (
+          <div className="game-won msg">
+            <div>You win! 🎊</div>
+            <button onClick={resetGame}>Play again</button>
+          </div>
+        )}
+        {gameOver && (
+          <div className="game-over msg">
+            <div>You lose! 😖</div>
+            <button onClick={resetGame}>Play again</button>
           </div>
         )}
         <div className="game">
@@ -127,18 +143,6 @@ function App() {
             {gameWon ? <span>{randomNumber}</span> : <span>?</span>}
           </div>
         </div>
-        {gameWon && (
-          <div className="game-won-message">
-            <h1>You win! 🎊</h1>
-            <button onClick={resetGame}>Play again</button>
-          </div>
-        )}
-        {gameOver && (
-          <div className="game-over-message">
-            <h1>You lose! 😖</h1>
-            <button onClick={resetGame}>Play again</button>
-          </div>
-        )}
       </div>
     </div>
   );
