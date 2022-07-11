@@ -91,10 +91,6 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 1.5rem;
   }
 
-  .msg-container {
-    /* height: 17vh; */
-  }
-
   .players-number input {
     width: 150px;
   }
@@ -119,7 +115,7 @@ input[type="number"]::-webkit-outer-spin-button {
   .game {
     display: flex;
     justify-content: space-around;
-    padding: 60px 0;
+    padding: 55px 0;
   }
 
   .players-number input {
@@ -137,6 +133,10 @@ input[type="number"]::-webkit-outer-spin-button {
   h1 {
     padding: 50px 0 10px 0;
   }
+
+  .game {
+    padding: 45px 0;
+  }
 }
 
 /* 4k styles */
@@ -151,6 +151,10 @@ input[type="number"]::-webkit-outer-spin-button {
 
   .app-container {
     max-width: 1440px;
+  }
+
+  .game {
+    padding: 60px 0;
   }
 
   .players-number input {
